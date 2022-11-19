@@ -1,0 +1,77 @@
+package org.example;
+
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
+
+public class Birthday {
+    int getAge(int year,int month, int date) {
+        LocalDate birthDay = LocalDate.of(year, month,date);
+        LocalDate nowData = LocalDate.now();
+        int inDays = (int) ChronoUnit.DAYS.between(birthDay, nowData);
+        System.out.println("Возвраст в днях "+inDays);
+
+        LocalDate birthDay1=birthDay;
+
+       /* do {
+            birthDay1=birthDay.plusYears(1);
+        }
+        while (birthDay1.getYear()<2022);
+       */
+int years = birthDay.getYear();
+  int yearsNow = nowData.getYear();
+        int inDays1;
+
+  for (int i = years; i<yearsNow; i++) { birthDay1=birthDay1.plus(1,ChronoUnit.YEARS); }
+  if (birthDay1.isAfter(nowData))
+  {
+      birthDay1=birthDay1.minus(1,ChronoUnit.YEARS);
+       inDays1 = (int) ChronoUnit.DAYS.between(birthDay, birthDay1);
+      //System.out.println(birthDay1);
+  }
+  else {  inDays1 = (int) ChronoUnit.DAYS.between(birthDay, birthDay1);}
+//while(years<yearsNow) {birthDay1=birthDay1.plus(1,ChronoUnit.YEARS);  }
+        //while (years<2022) { birthDay1.plus(1,ChronoUnit.YEARS); years = birthDay1.getYear();}
+
+        System.out.println("Возвраст в днях для полных лет "+inDays1);
+
+            return inDays;
+    }
+
+    LocalDate nextBirthday(int year, int month, int date)
+    {
+
+       // LocalDate myBirthday = LocalDate.of(year, month, date);
+        LocalDate nextBirthday = LocalDate.of(year, month, date);
+        LocalDate dat = LocalDate.now();
+
+         while (nextBirthday.isBefore(dat))
+            { nextBirthday = nextBirthday.plusDays(1000);}
+
+
+
+    System.out.println("Следующий день рождения в 1000 дней "+nextBirthday);
+
+        return nextBirthday;
+    }
+
+}
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+App.java
+///////////////////////////////////////////////////////////////////////////////////////////
+
+package org.example;
+
+
+
+public class App
+{
+    public static void main( String[] args )
+    {
+        Birthday birthday = new Birthday();
+        birthday.getAge(1988,12,19);
+        birthday.nextBirthday(1988,12,19);
+
+    }
+}
