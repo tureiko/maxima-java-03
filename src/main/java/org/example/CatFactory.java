@@ -13,7 +13,7 @@ public static Cat newCat;
         else {
              newCat =  new Cat(name,5, true);
         }
-        System.out.println(newCat);
+       // System.out.println(newCat);
         return newCat;
     }
 

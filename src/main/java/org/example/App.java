@@ -1,6 +1,12 @@
 package org.example;
 
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 public class App
 {
@@ -17,13 +23,28 @@ public class App
        catch (IncorrectCatWeightException ex) {
            System.out.println("Неправильный кот");
        }
+        System.out.println();
 
+  Cat cat = CatFactory.createCat("Мурзик", -1);
+        System.out.println("вес - "+cat.getWeight());
+        System.out.println("Сердитый - "+cat.isAngry());
+        System.out.println();
 
-  Cat cat = CatFactory.createCat("Мурзик", 4);
-        System.out.println(cat.getWeight());
-        System.out.println(cat.isAngry());
+        /* BufferedReader bufferedReader = new BufferedReader(new FileReader("cat.csv"));
+         String  line;
+         counter = 0;
+         while ((line= bufferedReader.readLine())!=null){
+             counter++;
+             System.out.println(line);
+         }
+ bufferedReader.close();
+        System.out.println();
 
-
+        */
+        TextTransformer textTransformer = new TextTransformer();
+        textTransformer.transform("cat.csv","text.txt");
 
     }
+
 }
+
