@@ -1,9 +1,12 @@
 package org.example;
 
+import java.util.ArrayList;
+
 public class Cat {
     private String name;
     private int weight;
     private boolean isAngry;
+
 
     public Cat(String name, int weight, boolean isAngry) throws Exception {
         if (weight <0) {
@@ -38,5 +41,9 @@ public class Cat {
 
     public void setAngry(boolean angry) {
         isAngry = angry;
+    }
+    @Override
+    public String toString(){
+        return "Cat{ " + name + "}";
     }
 }

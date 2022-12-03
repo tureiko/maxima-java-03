@@ -10,9 +10,9 @@ import java.util.List;
 public class TextTransformer implements Transformable {
 
 
+    @Override
     public void transform(String fileIn, String fileOut) throws IOException {
-
-String textOut = "<Сердитый (Дружелюбный)>кот<Имя>весом<n>кг.";
+        String textOut = "<Сердитый (Дружелюбный)>кот<Имя>весом<n>кг.";
 
         FileReader reader = new FileReader("cat.csv");
         int c;
@@ -32,12 +32,13 @@ String textOut = "<Сердитый (Дружелюбный)>кот<Имя>ве�
         String weight=new String();
 
         for (String index: row_csv) {
-           if(index.equals("false") || index.equals("true")) {
-               isAngry=index;
-               int i;
-               i=Arrays.binarySearch(row_csv, isAngry);
-              row_txt[i] = isAngry;
-           }
+            if(index.equals("false") || index.equals("true")) {
+                isAngry=index;
+                int i;
+                i= Arrays.binarySearch(row_csv, isAngry);
+                row_txt[i] = isAngry;
+            }
+
             try {
                 int age_int ;
                 age_int = Integer.parseInt(index);
@@ -50,17 +51,17 @@ String textOut = "<Сердитый (Дружелюбный)>кот<Имя>ве�
 
             }
             catch (NumberFormatException e) {
-                //System.out.println("Input String cannot be parsed to Integer.");
+               // e.printStackTrace();
             }
         }
 
-       for (int i=0; i<row_csv.length; i++){
-           if(row_txt[i]==null){
-               name=row_csv[i];
-           }
-       }
+        for (int i=0; i<row_csv.length; i++){
+            if(row_txt[i]==null){
+                name=row_csv[i];
+            }
+        }
 
-reader.close();
+        reader.close();
 /*switch (isAngry){
     case "true":
         break;
@@ -70,21 +71,22 @@ reader.close();
 }
 
  */
-if(isAngry.equals("true")){
-  textOut = textOut.replace("<Сердитый (Дружелюбный)>","Сердитый ");
-}
+        if(isAngry.equals("true")){
+            textOut = textOut.replace("<Сердитый (Дружелюбный)>","Сердитый ");
+        }
         if(isAngry.equals("false")){
-           textOut = textOut.replace("<Сердитый (Дружелюбный)>","Дружелюбный ");
+            textOut = textOut.replace("<Сердитый (Дружелюбный)>","Дружелюбный ");
         }
 
-      textOut = textOut.replace("<Имя>"," "+name+" ");
-       textOut = textOut.replace("<n>"," "+weight+" ");
+        textOut = textOut.replace("<Имя>"," "+name+" ");
+        textOut = textOut.replace("<n>"," "+weight+" ");
         System.out.println(textOut);
 
         FileWriter writer = new FileWriter("text.txt");
         writer.write(textOut);
-       // writer.append('\n');
-       writer.flush();
-       writer.close();
+        // writer.append('\n');
+        writer.flush();
+        writer.close();
     }
-}
+    }
+
