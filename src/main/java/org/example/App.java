@@ -21,7 +21,8 @@ public class App
         birthday.getAge(1988,12,19);
         birthday.nextBirthday(1988,12,19);
         System.out.println();
-
+        */
+        /*
         try {
             Cat cat = new Cat("Барсик", -1, false);
         }
@@ -30,12 +31,12 @@ public class App
        }
         System.out.println();
 
-         Cat cat = CatFactory.createCat("Мурзик", -1);
+         Cat cat = CatFactory.createCat("Мурзик", 6);
         System.out.println("вес - "+cat.getWeight());
         System.out.println("Сердитый - "+cat.isAngry());
         System.out.println();
-
-
+        */
+        /*
         TextTransformer textTransformer = new TextTransformer();
         textTransformer.transform("cat.csv","text.txt");
         System.out.println();
@@ -44,10 +45,11 @@ public class App
        streamTransformer.transform("cat.csv","out.txt");
        */
         Cat murzik = new Cat("Мурзик",5,true);
-        Cat barsik = new Cat("Мурзик",6,true);
-        Cat murka = new Cat("Мурзик",8,false);
+        Cat barsik = new Cat("Барсик",6,true);
+        Cat murka = new Cat("Мурка",8,false);
+        Cat aurka = new Cat("Aурка",8,false);
 
-        Dog sharik = new Dog("Шарик", true,"Пёс");
+       /* Dog sharik = new Dog("Шарик", true,"Пёс");
         Dog bobik = new Dog("Бобик", true,"Пёс");
         Dog tuzik = new Dog("Тузик", true,"Пёс");
 
@@ -64,10 +66,25 @@ public class App
         stackKitchen.add(sharik);
         stackKitchen.add(bobik);
         stackKitchen.add(tuzik);
-       stackKitchen.add(murzik);
+        stackKitchen.add(murzik);
         stackKitchen.add(barsik);
         stackKitchen.add(murka);
-        stackKitchen.feed();
+        stackKitchen.feed();*/
+
+        ArrayList<Cat> cats = new ArrayList<>();
+        cats.add(aurka);
+        cats.add(murzik);
+        cats.add(barsik);
+        cats.add(murka);
+
+
+
+        // CatStatistics.sortByNameAscending(cats);
+        // CatStatistics.sortByWeightDescending(cats);
+        //CatStatistics.removeFirstAndLast(cats);
+        //CatStatistics.findFirstNonAngryCat(cats);
+        CatStatistics.getCommonWeight(cats, false);  // с помощью метода .reduce
+        //CatStatistics.groupCatByFirstLetter(cats);
 
 
 

@@ -1,0 +1,233 @@
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+в App.java main()
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+Cat murzik = new Cat("Мурзик",5,true);
+        Cat barsik = new Cat("Барсик",6,true);
+        Cat murka = new Cat("Мурка",8,false);
+
+        Dog sharik = new Dog("Шарик", true,"Пёс");
+        Dog bobik = new Dog("Бобик", true,"Пёс");
+        Dog tuzik = new Dog("Тузик", true,"Пёс");
+
+        QueueKitchen<Object> queueKitchen =new QueueKitchen<>();
+        queueKitchen.add(sharik);
+        queueKitchen.add(bobik);
+        queueKitchen.add(tuzik);
+        queueKitchen.add(murzik);
+        queueKitchen.add(barsik);
+        queueKitchen.add(murka);
+        queueKitchen.feed();
+
+        StackKitchen<Object> stackKitchen = new StackKitchen<>();
+        stackKitchen.add(sharik);
+        stackKitchen.add(bobik);
+        stackKitchen.add(tuzik);
+        stackKitchen.add(murzik);
+        stackKitchen.add(barsik);
+        stackKitchen.add(murka);
+        stackKitchen.feed();
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+Dog.java
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+package org.example;
+
+import java.util.ArrayList;
+
+public class Dog implements AnimalKitchen<Object>{
+    private String name;
+    private String breed;
+    private boolean isGood;
+    private ArrayList<Object> animals =new ArrayList<>();
+
+    public Dog(String name, boolean isGood, String breed) {
+        this.name = name;
+        this.isGood = isGood;
+        this.breed = breed;
+    }
+
+    public void say(){
+        System.out.println("Гав !!");
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getBreed() {
+        return breed;
+    }
+
+    public void setBreed(String breed) {
+        this.breed = breed;
+    }
+
+    public boolean isGood() {
+        return isGood;
+    }
+
+    public void setGood(boolean good) {
+        isGood = good;
+    }
+
+
+    @Override
+    public void add(Object arg) {
+            animals.add(arg);
+            System.out.println(animals.toString());
+    }
+
+    @Override
+    public void feed() {
+
+    }
+
+    @Override
+    public ArrayList getAnimals() {
+        return null;
+    }
+
+    @Override
+    public String toString(){
+        return "Dog { "+ name + " }";
+    }
+}
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+Cat.java
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+package org.example;
+
+import java.util.ArrayList;
+
+public class Cat {
+    private String name;
+    private int weight;
+    private boolean isAngry;
+
+
+    public Cat(String name, int weight, boolean isAngry) throws Exception {
+        if (weight <0) {
+            throw new IncorrectCatWeightException("Неправильный кот");
+        }
+        this.name = name;
+        this.weight = weight;
+        this.isAngry = isAngry;
+    }
+
+    public void say(){
+        System.out.println("Мяу !!");
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getWeight() {
+        return weight;
+    }
+
+    public void setWeight(int weight) {
+        this.weight = weight;
+    }
+
+    public boolean isAngry() {
+        return isAngry;
+    }
+
+    public void setAngry(boolean angry) {
+        isAngry = angry;
+    }
+    @Override
+    public String toString(){
+        return "Cat { " + name + " }";
+    }
+}
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+QueueKitchen.java
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+package org.example;
+
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.PriorityQueue;
+import java.util.Queue;
+
+public class QueueKitchen<T> implements AnimalKitchen<Object> {
+    private ArrayList<Object> animals =new ArrayList<>();
+    private Queue<Object> queue = new LinkedList<>();
+
+    @Override
+    public void add(Object arg) {
+        queue.add(arg);
+        System.out.println(queue);
+
+    }
+
+    @Override
+    public void feed() {
+        while (!queue.isEmpty()){
+            queue.remove();
+       }
+        System.out.println(queue);
+    }
+
+    @Override
+    public ArrayList<Object> getAnimals() {
+        return null;
+    }
+}
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+StackKitchen.java
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+package org.example;
+
+import java.util.ArrayList;
+import java.util.Stack;
+
+public class StackKitchen<T> implements  AnimalKitchen<Object>{
+    private ArrayList<Object> animals =new ArrayList<>();
+    private Stack<Object> stack = new Stack<>();
+    @Override
+    public void add(Object arg) {
+        stack.push(arg);
+        System.out.println(stack);
+        stack.toString();
+    }
+
+    @Override
+    public void feed() {
+       while(!stack.isEmpty()) {
+           stack.pop();
+       }
+       System.out.println(stack);
+    }
+
+    @Override
+    public ArrayList getAnimals() {
+        return null;
+    }
+}
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+Interface AnimalKitchen
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+package org.example;
+
+import java.util.ArrayList;
+
+public interface AnimalKitchen<T> {
+    void add(T arg);
+    void feed();
+   ArrayList <T> getAnimals();
+}

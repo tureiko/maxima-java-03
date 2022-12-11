@@ -17,7 +17,9 @@ public class Cat {
         this.isAngry = isAngry;
     }
 
-
+    public void say(){
+        System.out.println("Мяу !!");
+    }
 
     public String getName() {
         return name;
@@ -44,6 +46,6 @@ public class Cat {
     }
     @Override
     public String toString(){
-        return "Cat{ " + name + "}";
+        return "Cat { " + name + " }";
     }
 }

@@ -8,15 +8,14 @@ public class Dog implements AnimalKitchen<Object>{
     private boolean isGood;
     private ArrayList<Object> animals =new ArrayList<>();
 
-    public Dog(ArrayList animals) {
-        this.animals = animals;
-    }
-
-
     public Dog(String name, boolean isGood, String breed) {
         this.name = name;
         this.isGood = isGood;
         this.breed = breed;
+    }
+
+    public void say(){
+        System.out.println("Гав !!");
     }
 
     public String getName() {
@@ -62,7 +61,7 @@ public class Dog implements AnimalKitchen<Object>{
 
     @Override
     public String toString(){
-        return "Dog{ " + name + "}";
+        return "Dog { "+ name + " }";
     }
 }
 
