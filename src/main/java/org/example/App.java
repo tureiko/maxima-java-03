@@ -1,7 +1,6 @@
 package org.example;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 public class App
 {
@@ -52,18 +51,5 @@ public class App
         stackKitchen.add(barsik);
         stackKitchen.add(murka);
         stackKitchen.feed();
-
-        ArrayList<Cat> cats = new ArrayList<>();
-        cats.add(aurka);
-        cats.add(murzik);
-        cats.add(barsik);
-        cats.add(murka);
-
-        CatStatistics.sortByNameAscending(cats);
-        CatStatistics.sortByWeightDescending(cats);
-        CatStatistics.removeFirstAndLast(cats);
-        CatStatistics.findFirstNonAngryCat(cats);
-        CatStatistics.getCommonWeight(cats, false);
-        CatStatistics.groupCatByFirstLetter(cats);
     }
 }
