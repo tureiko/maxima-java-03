@@ -44,9 +44,9 @@ public class Cat {
     }
     @Override
     public String toString(){
-        return "Cat { " + name + " } "
+        return "Cat { " + name + " } "/*
                 +"weight { " +weight+" } "
-                +"is Angry { "+isAngry+" }"
+                +"is Angry { "+isAngry+" }"*/
                 ;
     }
 }
