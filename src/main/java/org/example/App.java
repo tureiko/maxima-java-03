@@ -25,14 +25,14 @@ public class App {
         System.out.println(cat);
 /*
         StreamTransformer streamTransformer = new StreamTransformer();
-        streamTransformer.transform("cat.csv","out.txt");
+        streamTransformer.transform("cat.csv","out.txt"); */
 
         Cat murzik = new Cat("Мурзик",5,true);
-        Cat barsik = new Cat("Барсик",6,true);
+        Cat barsik = new Cat("Барсик",6,false);
         Cat murka = new Cat("Мурка",8,false);
-        Cat aurka = new Cat("Aурка",8,false);
+        Cat aurka = new Cat("Aурка",3,true);
 
-        Dog sharik = new Dog("Шарик", true,"Пёс");
+/*        Dog sharik = new Dog("Шарик", true,"Пёс");
         Dog bobik = new Dog("Бобик", true,"Пёс");
         Dog tuzik = new Dog("Тузик", true,"Пёс");
 
@@ -52,7 +52,7 @@ public class App {
         stackKitchen.add(murzik);
         stackKitchen.add(barsik);
         stackKitchen.add(murka);
-        stackKitchen.feed();
+        stackKitchen.feed(); */
 
         ArrayList<Cat> cats = new ArrayList<>();
         cats.add(aurka);
@@ -64,7 +64,7 @@ public class App {
         CatStatistics.sortByWeightDescending(cats);
         CatStatistics.removeFirstAndLast(cats);
         CatStatistics.findFirstNonAngryCat(cats);
-        CatStatistics.getCommonWeight(cats, false);
-        CatStatistics.groupCatByFirstLetter(cats);*/
+        CatStatistics.getCommonWeight(cats, true);
+        CatStatistics.groupCatByFirstLetter(cats);
     }
 }
