@@ -3,15 +3,14 @@ package org.example;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class App
-{
-    public static void main( String[] args ) throws Exception {
+public class App {
+    public static void main(String[] args) throws Exception {
         Birthday birthday = new Birthday();
-        birthday.getAge(1983,9,11);
-        birthday.nextBirthday(1983,9,11);
+        birthday.getAge(1983, 9, 11);
+        birthday.nextBirthday(1983, 9, 11);
         System.out.println();
 
-        TextTransformer textTransformer = new TextTransformer();
+        /*TextTransformer textTransformer = new TextTransformer();
         textTransformer.transform("cat.csv","text.txt");
 
         try {
@@ -64,6 +63,6 @@ public class App
         CatStatistics.removeFirstAndLast(cats);
         CatStatistics.findFirstNonAngryCat(cats);
         CatStatistics.getCommonWeight(cats, false);
-        CatStatistics.groupCatByFirstLetter(cats);
+        CatStatistics.groupCatByFirstLetter(cats);*/
     }
 }
