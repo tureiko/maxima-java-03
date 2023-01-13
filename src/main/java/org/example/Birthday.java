@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 
 public class Birthday {
-    int getAge(int year,int month, int date) {
+   public static int getAge(int year,int month, int date) {
         LocalDate birthDay = LocalDate.of(year, month,date);
         LocalDate nowData = LocalDate.now();
         int inDays = (int) ChronoUnit.DAYS.between(birthDay, nowData);
@@ -37,7 +37,7 @@ int years = birthDay.getYear();
             return inDays;
     }
 
-    LocalDate nextBirthday(int year, int month, int date)
+  public static LocalDate nextBirthday(int year, int month, int date)
     {
 
        // LocalDate myBirthday = LocalDate.of(year, month, date);

@@ -1,31 +1,25 @@
 package org.example;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.PriorityQueue;
-import java.util.Queue;
+import java.util.*;
 
-public class QueueKitchen<T> implements AnimalKitchen<Object> {
-    private ArrayList<Object> animals =new ArrayList<>();
-    private Queue<Object> queue = new LinkedList<>();
+public class QueueKitchen<T> implements AnimalKitchen<T> {
+    private ArrayList<T> animals = new ArrayList<>();
+    private Queue<T> queue = new LinkedList<>();
 
     @Override
-    public void add(Object arg) {
+    public void add(T arg) {
         queue.add(arg);
         System.out.println(queue);
-
     }
 
     @Override
     public void feed() {
-        while (!queue.isEmpty()){
+        while (!queue.isEmpty()) {
             queue.remove();
-       }
-        System.out.println(queue);
+            System.out.println(queue);
+        }
+
     }
 
-    @Override
-    public ArrayList<Object> getAnimals() {
-        return null;
-    }
+
 }

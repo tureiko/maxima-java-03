@@ -13,8 +13,10 @@ public class TextTransformer implements Transformable {
     @Override
     public void transform(String fileIn, String fileOut) throws IOException {
         String textOut = "<Сердитый (Дружелюбный)>кот<Имя>весом<n>кг.";
-
-        FileReader reader = new FileReader("cat.csv");
+       /* String name;
+        int weight;
+        boolean isAngry;*/
+        FileReader reader = new FileReader(fileIn);
         int c;
         int counter = 0;
         String text = new String();
@@ -74,7 +76,7 @@ public class TextTransformer implements Transformable {
         textOut = textOut.replace("<n>"," "+weight+" ");
         System.out.println(textOut);
 
-        FileWriter writer = new FileWriter("text.txt");
+        FileWriter writer = new FileWriter(fileOut);
         writer.write(textOut);
         // writer.append('\n');
         writer.flush();

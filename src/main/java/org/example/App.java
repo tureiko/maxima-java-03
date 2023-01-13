@@ -13,84 +13,76 @@ import java.util.LinkedList;
 import java.util.PriorityQueue;
 import java.util.Queue;
 
-public class App
-{
-    public static void main( String[] args ) throws Exception
-    {
-       /* Birthday birthday = new Birthday();
-        birthday.getAge(1988,12,19);
-        birthday.nextBirthday(1988,12,19);
-        System.out.println();
-        */
-        /*
+public class App {
+    public static void main(String[] args) throws Exception {
+        /*Birthday birthday = new Birthday();
+        Birthday.getAge(1983,9,11);
+        Birthday.nextBirthday(1983,9,11);*/
+
+     /*   System.out.println();
+
         try {
-            Cat cat = new Cat("Барсик", -1, false);
+            Cat cat = new Cat("Барсик", 5, false);
+            cat.setWeight(-1);
         }
        catch (IncorrectCatWeightException ex) {
            System.out.println("Неправильный кот");
        }
         System.out.println();
 
-         Cat cat = CatFactory.createCat("Мурзик", 6);
-        System.out.println("вес - "+cat.getWeight());
-        System.out.println("Сердитый - "+cat.isAngry());
-        System.out.println();
-        */
-        /*
-        TextTransformer textTransformer = new TextTransformer();
-        textTransformer.transform("cat.csv","text.txt");
-        System.out.println();
+        Cat cat = CatFactory.createCat("Мурзик", -1);
+        System.out.println();*/
 
+        /*TextTransformer textTransformer = new TextTransformer();
+        textTransformer.transform("cat.csv", "text.txt");
+        System.out.println();*/
+
+       /* Transformable transformable = new TextTransformer();
+        transformable.transform("cat.csv", "text.txt" );
         StreamTransformer streamTransformer = new StreamTransformer();
-       streamTransformer.transform("cat.csv","out.txt");
-       */
-        Cat murzik = new Cat("Мурзик",5,true);
-        Cat barsik = new Cat("Барсик",6,true);
-        Cat murka = new Cat("Мурка",8,false);
-        Cat aurka = new Cat("Aурка",8,false);
+       streamTransformer.transform("cat.csv","out.txt");*/
 
-       /* Dog sharik = new Dog("Шарик", true,"Пёс");
-        Dog bobik = new Dog("Бобик", true,"Пёс");
-        Dog tuzik = new Dog("Тузик", true,"Пёс");
-
-        QueueKitchen<Object> queueKitchen =new QueueKitchen<>();
-        queueKitchen.add(sharik);
-        queueKitchen.add(bobik);
-        queueKitchen.add(tuzik);
-        queueKitchen.add(murzik);
-        queueKitchen.add(barsik);
-        queueKitchen.add(murka);
-        queueKitchen.feed();
-
-        StackKitchen<Object> stackKitchen = new StackKitchen<>();
-        stackKitchen.add(sharik);
-        stackKitchen.add(bobik);
-        stackKitchen.add(tuzik);
-        stackKitchen.add(murzik);
-        stackKitchen.add(barsik);
-        stackKitchen.add(murka);
-        stackKitchen.feed();*/
-
-        ArrayList<Cat> cats = new ArrayList<>();
-        cats.add(aurka);
-        cats.add(murzik);
-        cats.add(barsik);
-        cats.add(murka);
+        Cat murzik = new Cat("Мурзик", 5, false);
+        Cat barsik = new Cat("Барсик", 6, true);
+        Cat murka = new Cat("Мурка", 8, false);
+        Cat aurka = new Cat("Aурка", 8, false);
 
 
+        Dog sharik = new Dog("Шарик", true, "Пёс");
+        Dog bobik = new Dog("Бобик", true, "Пёс");
+        Dog tuzik = new Dog("Тузик", true, "Пёс");
 
-        // CatStatistics.sortByNameAscending(cats);
-        // CatStatistics.sortByWeightDescending(cats);
-        //CatStatistics.removeFirstAndLast(cats);
-        //CatStatistics.findFirstNonAngryCat(cats);
-        CatStatistics.getCommonWeight(cats, false);  // с помощью метода .reduce
-        //CatStatistics.groupCatByFirstLetter(cats);
+        QueueKitchen<Dog> dogQueueKitchen = new QueueKitchen<>();
+        dogQueueKitchen.add(bobik);
+        dogQueueKitchen.add(sharik);
+        dogQueueKitchen.add(tuzik);
+        dogQueueKitchen.feed();
+
+        QueueKitchen<Cat> catQueueKitchen = new QueueKitchen<>();
+        catQueueKitchen.add(murzik);
+        catQueueKitchen.add(barsik);
+        catQueueKitchen.add(murka);
+        catQueueKitchen.feed();
+
+        StackKitchen<Dog> dogStackKitchen = new StackKitchen<>();
+        dogStackKitchen.add(sharik);
+        dogStackKitchen.add(bobik);
+        dogStackKitchen.add(tuzik);
+        dogStackKitchen.feed();
+
+        StackKitchen<Cat> catStackKitchen = new StackKitchen<>();
+        catStackKitchen.add(murzik);
+        catStackKitchen.add(barsik);
+        catStackKitchen.add(murka);
+        catStackKitchen.feed();
 
 
-
-
-
-
+       /* CatStatistics.sortByNameAscending(cats);
+        CatStatistics.sortByWeightDescending(cats);
+        CatStatistics.removeFirstAndLast(cats);
+        CatStatistics.findFirstNonAngryCat(cats);
+        CatStatistics.getCommonWeight(cats, false);
+        CatStatistics.groupCatByFirstLetter(cats);*/
 
 
     }

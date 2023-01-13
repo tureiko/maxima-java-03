@@ -1,7 +1,7 @@
 package org.example;
 
 public class CatFactory {
-public static Cat newCat;
+private static Cat newCat;
 
 
 
