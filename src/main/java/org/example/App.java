@@ -11,17 +11,19 @@ public class App {
         System.out.println();
 
         /*TextTransformer textTransformer = new TextTransformer();
-        textTransformer.transform("cat.csv","text.txt");
+        textTransformer.transform("cat.csv","text.txt");*/
 
         try {
             Cat cat = new Cat("Барсик", -1, false);
-        }
-        catch (Exception ex) {
+            System.out.println(cat);
+        } catch (Exception ex) {
             System.out.println("Неправильный кот");
         }
+        System.out.println();
 
-        Cat cat = CatFactory.createCat("Мурзик", 6);
-
+        Cat cat = CatFactory.createCat("Мурзик", 3);
+        System.out.println(cat);
+/*
         StreamTransformer streamTransformer = new StreamTransformer();
         streamTransformer.transform("cat.csv","out.txt");
 

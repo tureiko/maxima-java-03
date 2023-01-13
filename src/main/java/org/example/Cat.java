@@ -1,5 +1,6 @@
 package org.example;
 
+
 public class Cat {
     private String name;
     private int weight;
@@ -7,17 +8,12 @@ public class Cat {
 
 
     public Cat(String name, int weight, boolean isAngry) throws Exception {
-        if (weight <0) {
-            throw new IncorrectCatWeightException("Неправильный кот");
-        }
         this.name = name;
-        this.weight = weight;
+        if (weight >= 0) this.weight = weight;
+        else throw new IncorrectCatWeightException("Неправильный кот");
         this.isAngry = isAngry;
     }
 
-    public void say(){
-        System.out.println("Мяу !!");
-    }
 
     public String getName() {
         return name;
@@ -31,8 +27,9 @@ public class Cat {
         return weight;
     }
 
-    public void setWeight(int weight) {
-        this.weight = weight;
+    public void setWeight(int weight) throws IncorrectCatWeightException {
+        if (weight >= 0) this.weight = weight;
+        else throw new IncorrectCatWeightException("Неправильный кот");
     }
 
     public boolean isAngry() {
@@ -42,11 +39,19 @@ public class Cat {
     public void setAngry(boolean angry) {
         isAngry = angry;
     }
+
+
     @Override
-    public String toString(){
-        return "Cat { " + name + " } "/*
-                +"weight { " +weight+" } "
-                +"is Angry { "+isAngry+" }"*/
-                ;
+    public String toString() {
+        return "Cat{" +
+                "name='" + name + '\'' +
+                ", weight=" + weight +
+                ", isAngry=" + isAngry +
+                '}';
     }
+
+        /*@Override
+    public String toString() {
+        return "Cat { " + name + " }";
+    }*/
 }
