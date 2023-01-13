@@ -32,27 +32,33 @@ public class App {
         Cat murka = new Cat("Мурка",8,false);
         Cat aurka = new Cat("Aурка",3,true);
 
-/*        Dog sharik = new Dog("Шарик", true,"Пёс");
-        Dog bobik = new Dog("Бобик", true,"Пёс");
-        Dog tuzik = new Dog("Тузик", true,"Пёс");
+        Dog sharik = new Dog("Шарик", true, "Пёс");
+        Dog bobik = new Dog("Бобик", true, "Пёс");
+        Dog tuzik = new Dog("Тузик", true, "Пёс");
 
-        QueueKitchen<Object> queueKitchen =new QueueKitchen<>();
-        queueKitchen.add(sharik);
-        queueKitchen.add(bobik);
-        queueKitchen.add(tuzik);
-        queueKitchen.add(murzik);
-        queueKitchen.add(barsik);
-        queueKitchen.add(murka);
-        queueKitchen.feed();
+        QueueKitchen<Dog> dogQueueKitchen = new QueueKitchen<>();
+        dogQueueKitchen.add(bobik);
+        dogQueueKitchen.add(sharik);
+        dogQueueKitchen.add(tuzik);
+        dogQueueKitchen.feed();
 
-        StackKitchen<Object> stackKitchen = new StackKitchen<>();
-        stackKitchen.add(sharik);
-        stackKitchen.add(bobik);
-        stackKitchen.add(tuzik);
-        stackKitchen.add(murzik);
-        stackKitchen.add(barsik);
-        stackKitchen.add(murka);
-        stackKitchen.feed(); */
+        QueueKitchen<Cat> catQueueKitchen = new QueueKitchen<>();
+        catQueueKitchen.add(murzik);
+        catQueueKitchen.add(barsik);
+        catQueueKitchen.add(murka);
+        catQueueKitchen.feed();
+
+        StackKitchen<Dog> dogStackKitchen = new StackKitchen<>();
+        dogStackKitchen.add(sharik);
+        dogStackKitchen.add(bobik);
+        dogStackKitchen.add(tuzik);
+        dogStackKitchen.feed();
+
+        StackKitchen<Cat> catStackKitchen = new StackKitchen<>();
+        catStackKitchen.add(murzik);
+        catStackKitchen.add(barsik);
+        catStackKitchen.add(murka);
+        catStackKitchen.feed();
 
         ArrayList<Cat> cats = new ArrayList<>();
         cats.add(aurka);

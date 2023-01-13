@@ -1,12 +1,11 @@
 package org.example;
 
-import java.util.ArrayList;
 
-public class Dog implements AnimalKitchen<Object>{
+public class Dog{
     private String name;
     private String breed;
     private boolean isGood;
-    private ArrayList<Object> animals =new ArrayList<>();
+
 
     public Dog(String name, boolean isGood, String breed) {
         this.name = name;
@@ -14,9 +13,6 @@ public class Dog implements AnimalKitchen<Object>{
         this.breed = breed;
     }
 
-    public void say(){
-        System.out.println("Гав !!");
-    }
 
     public String getName() {
         return name;
@@ -43,25 +39,10 @@ public class Dog implements AnimalKitchen<Object>{
     }
 
 
-    @Override
-    public void add(Object arg) {
-            animals.add(arg);
-            System.out.println(animals.toString());
-    }
+
 
     @Override
-    public void feed() {
-
-    }
-
-    @Override
-    public ArrayList getAnimals() {
-        return null;
-    }
-
-    @Override
-    public String toString(){
-        return "Dog { "+ name + " }";
+    public String toString() {
+        return "Dog { " + name + " }";
     }
 }
-
