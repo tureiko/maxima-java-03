@@ -31,7 +31,7 @@ public class CatStatistics {
     }
 
     public static Cat findFirstNonAngryCat(ArrayList<Cat> cats) {
-        Cat nonAngryCat = cats.stream().findFirst().get();
+        Cat nonAngryCat = cats.stream().filter(x-> !x.isAngry()).findFirst().get();
         System.out.println(cats);
         System.out.println(" Первый не сердитый кот: " + nonAngryCat);
         return nonAngryCat;

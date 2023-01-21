@@ -32,7 +32,7 @@ public class App {
         Cat murka = new Cat("Мурка",8,false);
         Cat aurka = new Cat("Aурка",3,true);
 
-        Dog sharik = new Dog("Шарик", true, "Пёс");
+       /* Dog sharik = new Dog("Шарик", true, "Пёс");
         Dog bobik = new Dog("Бобик", true, "Пёс");
         Dog tuzik = new Dog("Тузик", true, "Пёс");
 
@@ -58,7 +58,7 @@ public class App {
         catStackKitchen.add(murzik);
         catStackKitchen.add(barsik);
         catStackKitchen.add(murka);
-        catStackKitchen.feed();
+        catStackKitchen.feed();*/
 
         ArrayList<Cat> cats = new ArrayList<>();
         cats.add(aurka);
