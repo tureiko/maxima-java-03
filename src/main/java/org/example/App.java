@@ -5,9 +5,10 @@ import java.util.ArrayList;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        Birthday birthday = new Birthday();
-        birthday.getAge(1983, 9, 11);
-        birthday.nextBirthday(1983, 9, 11);
+
+        Birthday.getAge(1983, 9, 11);
+        Birthday.nextBirthday(1983, 9, 11);
+
         System.out.println();
 
         /*TextTransformer textTransformer = new TextTransformer();
