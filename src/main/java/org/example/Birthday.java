@@ -25,8 +25,7 @@ public class Birthday {
         LocalDate dateNow = LocalDate.now();
 
         int totalDaysPassed = (int) DAYS.between(myBirthday, dateNow);
-        int daysBeforeTheBirthday = (int) (Math.ceil(totalDaysPassed / 1000.0) * 1000);
-        LocalDate ThousandthBirthday = myBirthday.plusDays(daysBeforeTheBirthday);
+        LocalDate ThousandthBirthday = myBirthday.plusDays((int) (Math.ceil(totalDaysPassed / 1000.0) * 1000));
 
         System.out.println("Следующий день рождения в 1000 дней " + ThousandthBirthday);
 
