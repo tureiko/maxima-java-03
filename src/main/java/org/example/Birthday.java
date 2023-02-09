@@ -22,17 +22,14 @@ public class Birthday {
     public static LocalDate nextBirthday(int year, int month, int date) {
 
         LocalDate myBirthday = LocalDate.of(year, month, date);
-        LocalDate nextBirthday = LocalDate.of(year, month, date);
-        LocalDate dat = LocalDate.now();
+        LocalDate dateNow = LocalDate.now();
 
+        int totalDaysPassed = (int) DAYS.between(myBirthday, dateNow);
+        LocalDate ThousandthBirthday = myBirthday.plusDays((int) (Math.ceil(totalDaysPassed / 1000.0) * 1000));
 
-        while (nextBirthday.isBefore(dat)) {
-            nextBirthday = nextBirthday.plusDays(1000);
-        }
+        System.out.println("Следующий день рождения в 1000 дней " + ThousandthBirthday);
 
-        System.out.println("Следующий день рождения в 1000 дней " + nextBirthday);
-
-        return nextBirthday;
+        return ThousandthBirthday;
     }
 
 }
