@@ -61,17 +61,17 @@ public class App {
         catStackKitchen.add(murka);
         catStackKitchen.feed();*/
 
-        ArrayList<Cat> cats = new ArrayList<>();
-        cats.add(aurka);
-        cats.add(murzik);
-        cats.add(barsik);
-        cats.add(murka);
-
-        CatStatistics.sortByNameAscending(cats);
-        CatStatistics.sortByWeightDescending(cats);
-        CatStatistics.removeFirstAndLast(cats);
-        CatStatistics.findFirstNonAngryCat(cats);
-        CatStatistics.getCommonWeight(cats, true);
-        CatStatistics.groupCatByFirstLetter(cats);
+//        ArrayList<Cat> cats = new ArrayList<>();
+//        cats.add(aurka);
+//        cats.add(murzik);
+//        cats.add(barsik);
+//        cats.add(murka);
+//
+//        CatStatistics.sortByNameAscending(cats);
+//        CatStatistics.sortByWeightDescending(cats);
+//        CatStatistics.removeFirstAndLast(cats);
+//        CatStatistics.findFirstNonAngryCat(cats);
+//        CatStatistics.getCommonWeight(cats, true);
+//        CatStatistics.groupCatByFirstLetter(cats);
     }
 }

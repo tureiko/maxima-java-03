@@ -1,9 +1,6 @@
 package org.example;
 
 import java.time.LocalDate;
-import java.time.Period;
-import java.time.chrono.IsoChronology;
-import java.time.temporal.ChronoUnit;
 
 import static java.time.temporal.ChronoUnit.DAYS;
 
@@ -13,10 +10,10 @@ public class Birthday {
     public static int getAge(int year, int month, int date) {
         LocalDate birthDay = LocalDate.of(year, month, date);
         LocalDate nowData = LocalDate.now();
-        int inDays = (int) DAYS.between(birthDay, nowData);
-        System.out.println("Возвраст в днях " + inDays);
+        int ageInDays = (int) DAYS.between(birthDay, nowData);
+        System.out.println("Возвраст в днях " + ageInDays);
 
-        return inDays;
+        return ageInDays;
     }
 
     public static LocalDate nextBirthday(int year, int month, int date) {
