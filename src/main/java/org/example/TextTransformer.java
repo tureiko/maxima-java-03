@@ -6,77 +6,40 @@ import java.io.IOException;
 import java.util.Arrays;
 
 public class TextTransformer implements Transformable {
-
-
     @Override
     public void transform(String fileIn, String fileOut) throws IOException {
-        String textOut = "<Сердитый (Дружелюбный)>кот<Имя>весом<n>кг.";
-
-        FileReader reader = new FileReader("cat.csv");
+        FileReader reader = new FileReader(fileIn);
         int c;
         int counter = 0;
-        String text = new String();
-        while ((c= reader.read())!=-1) {
+        String text = "";
+        while ((c = reader.read()) != -1) {
             counter++;
-           // System.out.print((char) c);
-            text += String.valueOf((char)c);
+            System.out.print((char) c);
+            text += String.valueOf((char) c);
         }
+        reader.close();
         System.out.println();
 
+        String name = "";
+        String weight = "";
+        String isAngry = new String();
+
         String[] row_csv = text.split(";");
-        String[] row_txt = new String[row_csv.length];
-        String isAngry=new String();
-        String name = new String();
-        String weight=new String();
 
-        for (String index: row_csv) {
-            if(index.equals("false") || index.equals("true")) {
-                isAngry=index;
-                int i;
-                i= Arrays.binarySearch(row_csv, isAngry);
-                row_txt[i] = isAngry;
-            }
+        name = row_csv[0];
+        weight = row_csv[1];
+        isAngry = row_csv[2];
 
-            try {
-                int age_int ;
-                age_int = Integer.parseInt(index);
-                weight = String.valueOf(age_int);
-                if (weight.equals(index)) {
-                    int i;
-                    i=Arrays.binarySearch(row_csv, weight);
-                    row_txt[i] = weight;
-                }
+        String template = ((isAngry.equals("true")) ? "Сердитый " : "Добродушный ") + "кот %s весом %s кг.";
+        String textOut = String.format(template, name, weight);
 
-            }
-            catch (NumberFormatException e) {
-               // e.printStackTrace();
-            }
-        }
-
-        for (int i=0; i<row_csv.length; i++){
-            if(row_txt[i]==null){
-                name=row_csv[i];
-            }
-        }
-
-        reader.close();
-
-        if(isAngry.equals("true")){
-            textOut = textOut.replace("<Сердитый (Дружелюбный)>","Сердитый ");
-        }
-        if(isAngry.equals("false")){
-            textOut = textOut.replace("<Сердитый (Дружелюбный)>","Дружелюбный ");
-        }
-
-        textOut = textOut.replace("<Имя>"," "+name+" ");
-        textOut = textOut.replace("<n>"," "+weight+" ");
         System.out.println(textOut);
 
-        FileWriter writer = new FileWriter("text.txt");
+        FileWriter writer = new FileWriter(fileOut);
         writer.write(textOut);
         // writer.append('\n');
         writer.flush();
         writer.close();
     }
-    }
+}
 

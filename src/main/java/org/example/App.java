@@ -1,5 +1,6 @@
 package org.example;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -11,10 +12,16 @@ public class App {
 
         System.out.println();
 
-        /*TextTransformer textTransformer = new TextTransformer();
-        textTransformer.transform("cat.csv","text.txt");*/
+        File file = new File("cat.csv");
+        File file2 = new File("text.txt");
 
-        try {
+        String fileIn = file.toString();
+        String fileOut = file2.toString();
+
+        TextTransformer textTransformer = new TextTransformer();
+        textTransformer.transform(fileIn, fileOut);
+
+       /* try {
             Cat cat = new Cat("Барсик", -1, false);
             System.out.println(cat);
         } catch (Exception ex) {
@@ -23,7 +30,7 @@ public class App {
         System.out.println();
 
         Cat cat = CatFactory.createCat("Мурзик", 3);
-        System.out.println(cat);
+        System.out.println(cat);*/
 /*
         StreamTransformer streamTransformer = new StreamTransformer();
         streamTransformer.transform("cat.csv","out.txt"); */
