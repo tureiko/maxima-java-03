@@ -18,8 +18,11 @@ public class App {
         String fileIn = file.toString();
         String fileOut = file2.toString();
 
-        TextTransformer textTransformer = new TextTransformer();
-        textTransformer.transform(fileIn, fileOut);
+       /* TextTransformer textTransformer = new TextTransformer();
+        textTransformer.transform(fileIn, fileOut);*/
+
+        StreamTransformer streamTransformer = new StreamTransformer();
+        streamTransformer.transform(fileIn,fileOut);
 
        /* try {
             Cat cat = new Cat("Барсик", -1, false);

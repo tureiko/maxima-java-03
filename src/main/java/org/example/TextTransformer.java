@@ -20,15 +20,11 @@ public class TextTransformer implements Transformable {
         reader.close();
         System.out.println();
 
-        String name = "";
-        String weight = "";
-        String isAngry = new String();
+        String[] arrStr = text.split(";");
 
-        String[] row_csv = text.split(";");
-
-        name = row_csv[0];
-        weight = row_csv[1];
-        isAngry = row_csv[2];
+        String name = arrStr[0];
+        String weight = arrStr[1];
+        String isAngry = arrStr[2];
 
         String template = ((isAngry.equals("true")) ? "Сердитый " : "Добродушный ") + "кот %s весом %s кг.";
         String textOut = String.format(template, name, weight);
