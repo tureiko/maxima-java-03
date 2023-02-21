@@ -1,7 +1,7 @@
 package org.example;
 
-import java.lang.reflect.Array;
 import java.util.*;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -9,45 +9,47 @@ public class CatStatistics {
     public static ArrayList<Cat> sortByNameAscending(ArrayList<Cat> cats) {
         cats = (ArrayList<Cat>) cats.stream().sorted((x, y) -> x.getName().compareTo(y.getName()))
                 .collect(Collectors.toList());
-        System.out.println(cats);
+        System.out.println("По имени: " + cats);
         return cats;
     }
 
     public static ArrayList<Cat> sortByWeightDescending(ArrayList<Cat> cats) {
-        List<Cat> sortCats = new ArrayList<>();
-        sortCats = cats.stream().sorted((x, y) -> y.getWeight() - x.getWeight())
+        List<Cat> sortCats = cats.stream().sorted((x, y) -> y.getWeight() - x.getWeight())
                 .collect(Collectors.toList());
-        System.out.println(" По весу: " + sortCats);
+        System.out.println("По весу: " + sortCats);
         return (ArrayList<Cat>) sortCats;
     }
 
     public static ArrayList<Cat> removeFirstAndLast(ArrayList<Cat> cats) {
-        ArrayList<Cat> cats1 = (ArrayList<Cat>) cats.clone();
-        int lastIndex = cats1.size() - 1;
-        cats1.remove(lastIndex);
-        cats1.remove(0);
-        System.out.println(" Коты кроме 1 и последнего: " + cats1);
-        return cats1;
+
+              // Stream.concat(cats.stream().findFirst().filter(cats::remove),cats.stream().reduce((a, b) -> b).filter(cats::remove)
+        cats.stream().findFirst().filter(cats::remove);
+        cats.stream().reduce((a, b) -> b).filter(cats::remove);
+
+        System.out.println("Без первого и последнего: " + cats);
+
+        return cats;
     }
 
     public static Cat findFirstNonAngryCat(ArrayList<Cat> cats) {
-        Cat nonAngryCat = cats.stream().findFirst().get();
-        System.out.println(cats);
-        System.out.println(" Первый не сердитый кот: " + nonAngryCat);
+        Cat nonAngryCat = cats.stream().dropWhile(Cat::isAngry).findFirst().orElse(null);
+        System.out.println("Первый не сердитый кот: " + nonAngryCat);
         return nonAngryCat;
     }
 
     public static int getCommonWeight(ArrayList<Cat> cats, boolean onlyAngry) {
-
+        int sumWeight;
+       /*  sumWeight = onlyAngry ? cats.stream().filter(Cat::isAngry).mapToInt(Cat::getWeight).reduce(Integer::sum).getAsInt()
+        : cats.stream().mapToInt(Cat::getWeight).sum();*/
         if (onlyAngry) {
-            int sumAngryCats = cats.stream().filter(Cat::isAngry).mapToInt(Cat::getWeight).sum();
-            // int sumAngryCats = cats.stream().takeWhile(x->x.isAngry()).mapToInt(o->o.getWeight()).sum();
-            System.out.println(" Суммарный вес только сердитых котов: " + sumAngryCats);
-            return sumAngryCats;
+            sumWeight = cats.stream().filter(Cat::isAngry).mapToInt(Cat::getWeight).reduce(Integer::sum).getAsInt();
+            System.out.println("Суммарный вес только сердитых: " + sumWeight);
+            return sumWeight;
         }
-        int sum = cats.stream().mapToInt(Cat::getWeight).sum();
-        System.out.println(" Суммарный вес котов: " + sum);
-        return sum;
+        sumWeight = cats.stream().mapToInt(Cat::getWeight).sum();
+        System.out.println("Суммарный вес всех: " + sumWeight);
+        return sumWeight;
+
     }
 
 
@@ -64,7 +66,7 @@ public class CatStatistics {
             List<Cat> values = entry.getValue();
             catsListGrouped.put(key.toString(), values);
         }
-        System.out.println("return " + catsListGrouped);
+        System.out.println("Группировка по первой букве: " + catsListGrouped);
 
         return catsListGrouped;
 

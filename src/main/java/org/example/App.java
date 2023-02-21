@@ -15,9 +15,8 @@ import java.util.Queue;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        /*Birthday birthday = new Birthday();
         Birthday.getAge(1983,9,11);
-        Birthday.nextBirthday(1983,9,11);*/
+        Birthday.nextBirthday(1983,9,11);
 
      /*   System.out.println();
 
@@ -33,26 +32,31 @@ public class App {
         Cat cat = CatFactory.createCat("Мурзик", -1);
         System.out.println();*/
 
-        /*TextTransformer textTransformer = new TextTransformer();
-        textTransformer.transform("cat.csv", "text.txt");
-        System.out.println();*/
 
-       /* Transformable transformable = new TextTransformer();
-        transformable.transform("cat.csv", "text.txt" );
-        StreamTransformer streamTransformer = new StreamTransformer();
-       streamTransformer.transform("cat.csv","out.txt");*/
+        File file = new File("cat.csv");
+        File file2 = new File("text.txt");
 
-        Cat murzik = new Cat("Мурзик", 5, false);
+        String fileIn = file.toString();
+        String fileOut = file2.toString();
+
+        TextTransformer textTransformer = new TextTransformer();
+        textTransformer.transform(fileIn, fileOut);
+        System.out.println();
+
+       /* StreamTransformer streamTransformer = new StreamTransformer();
+        streamTransformer.transform(fileIn,fileOut);*/
+
+        Cat murzik = new Cat("Мурзик", 5, true);
         Cat barsik = new Cat("Барсик", 6, true);
-        Cat murka = new Cat("Мурка", 8, false);
-        Cat aurka = new Cat("Aурка", 8, false);
+        Cat murka = new Cat("Мурка", 8, true);
+        Cat pushistik = new Cat("Пушистик", 8, false);
 
 
-        Dog sharik = new Dog("Шарик", true, "Пёс");
-        Dog bobik = new Dog("Бобик", true, "Пёс");
-        Dog tuzik = new Dog("Тузик", true, "Пёс");
+      //  Dog sharik = new Dog("Шарик", 10, false);
+      //  Dog bobik = new Dog("Бобик", 20, true);
+      //  Dog tuzik = new Dog("Тузик", 30, false);
 
-        QueueKitchen<Dog> dogQueueKitchen = new QueueKitchen<>();
+       /* QueueKitchen<Dog> dogQueueKitchen = new QueueKitchen<>();
         dogQueueKitchen.add(bobik);
         dogQueueKitchen.add(sharik);
         dogQueueKitchen.add(tuzik);
@@ -74,15 +78,21 @@ public class App {
         catStackKitchen.add(murzik);
         catStackKitchen.add(barsik);
         catStackKitchen.add(murka);
-        catStackKitchen.feed();
+        catStackKitchen.feed(); */
 
+        ArrayList<Cat> cats = new ArrayList<>();
 
-       /* CatStatistics.sortByNameAscending(cats);
+        cats.add(murzik);
+        cats.add(barsik);
+        cats.add(murka);
+        cats.add(pushistik);
+
+        CatStatistics.sortByNameAscending(cats);
         CatStatistics.sortByWeightDescending(cats);
-        CatStatistics.removeFirstAndLast(cats);
+        // CatStatistics.removeFirstAndLast(cats);
         CatStatistics.findFirstNonAngryCat(cats);
-        CatStatistics.getCommonWeight(cats, false);
-        CatStatistics.groupCatByFirstLetter(cats);*/
+       CatStatistics.getCommonWeight(cats, true);
+        CatStatistics.groupCatByFirstLetter(cats);
 
 
     }
