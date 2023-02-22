@@ -18,7 +18,7 @@ public class App {
        /* Birthday.getAge(1983, 9, 11);
         Birthday.nextBirthday(1983, 9, 11);*/
 
-     /*   System.out.println();
+      /*   System.out.println();
 
         try {
             Cat cat = new Cat("Барсик", 5, false);
