@@ -14,19 +14,17 @@ public class CatStatistics {
     }
 
     public static ArrayList<Cat> sortByWeightDescending(ArrayList<Cat> cats) {
-        List<Cat> sortCats = cats.stream().sorted((x, y) -> y.getWeight() - x.getWeight())
+        cats = (ArrayList<Cat>) cats.stream().sorted((x, y) -> y.getWeight() - x.getWeight())
                 .collect(Collectors.toList());
-        System.out.println("По весу: " + sortCats);
-        return (ArrayList<Cat>) sortCats;
+        System.out.println("По весу: " + cats);
+        return cats;
     }
 
     public static ArrayList<Cat> removeFirstAndLast(ArrayList<Cat> cats) {
+        List<Cat> exceptFirstLast = cats
+                .stream().limit(cats.size() - 1).skip(1).collect(Collectors.toList());
 
-              // Stream.concat(cats.stream().findFirst().filter(cats::remove),cats.stream().reduce((a, b) -> b).filter(cats::remove)
-        cats.stream().findFirst().filter(cats::remove);
-        cats.stream().reduce((a, b) -> b).filter(cats::remove);
-
-        System.out.println("Без первого и последнего: " + cats);
+        System.out.println("Кроме первого и последнего: " + exceptFirstLast);
 
         return cats;
     }
@@ -39,15 +37,9 @@ public class CatStatistics {
 
     public static int getCommonWeight(ArrayList<Cat> cats, boolean onlyAngry) {
         int sumWeight;
-       /*  sumWeight = onlyAngry ? cats.stream().filter(Cat::isAngry).mapToInt(Cat::getWeight).reduce(Integer::sum).getAsInt()
-        : cats.stream().mapToInt(Cat::getWeight).sum();*/
-        if (onlyAngry) {
-            sumWeight = cats.stream().filter(Cat::isAngry).mapToInt(Cat::getWeight).reduce(Integer::sum).getAsInt();
-            System.out.println("Суммарный вес только сердитых: " + sumWeight);
-            return sumWeight;
-        }
-        sumWeight = cats.stream().mapToInt(Cat::getWeight).sum();
-        System.out.println("Суммарный вес всех: " + sumWeight);
+        sumWeight = onlyAngry ? cats.stream().filter(Cat::isAngry).mapToInt(Cat::getWeight).reduce(Integer::sum).getAsInt()
+                : cats.stream().mapToInt(Cat::getWeight).sum();
+        System.out.println(String.format(onlyAngry ? "Суммарный вес только сердитых: %d" : "Суммарный вес всех: %d", sumWeight));
         return sumWeight;
 
     }

@@ -15,8 +15,8 @@ import java.util.Queue;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        Birthday.getAge(1983,9,11);
-        Birthday.nextBirthday(1983,9,11);
+       /* Birthday.getAge(1983, 9, 11);
+        Birthday.nextBirthday(1983, 9, 11);*/
 
      /*   System.out.println();
 
@@ -33,7 +33,7 @@ public class App {
         System.out.println();*/
 
 
-        File file = new File("cat.csv");
+       /* File file = new File("cat.csv");
         File file2 = new File("text.txt");
 
         String fileIn = file.toString();
@@ -41,7 +41,7 @@ public class App {
 
         TextTransformer textTransformer = new TextTransformer();
         textTransformer.transform(fileIn, fileOut);
-        System.out.println();
+        System.out.println();*/
 
        /* StreamTransformer streamTransformer = new StreamTransformer();
         streamTransformer.transform(fileIn,fileOut);*/
@@ -52,9 +52,9 @@ public class App {
         Cat pushistik = new Cat("Пушистик", 8, false);
 
 
-      //  Dog sharik = new Dog("Шарик", 10, false);
-      //  Dog bobik = new Dog("Бобик", 20, true);
-      //  Dog tuzik = new Dog("Тузик", 30, false);
+        //  Dog sharik = new Dog("Шарик", 10, false);
+        //  Dog bobik = new Dog("Бобик", 20, true);
+        //  Dog tuzik = new Dog("Тузик", 30, false);
 
        /* QueueKitchen<Dog> dogQueueKitchen = new QueueKitchen<>();
         dogQueueKitchen.add(bobik);
@@ -89,9 +89,9 @@ public class App {
 
         CatStatistics.sortByNameAscending(cats);
         CatStatistics.sortByWeightDescending(cats);
-        // CatStatistics.removeFirstAndLast(cats);
+        CatStatistics.removeFirstAndLast(cats);
         CatStatistics.findFirstNonAngryCat(cats);
-       CatStatistics.getCommonWeight(cats, true);
+        CatStatistics.getCommonWeight(cats, true);
         CatStatistics.groupCatByFirstLetter(cats);
 
 
