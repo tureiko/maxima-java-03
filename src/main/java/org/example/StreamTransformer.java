@@ -18,15 +18,11 @@ public class StreamTransformer implements Transformable{
                 result.append((char) r);
             }
 
-            //System.out.println(result);
-
             String arrResult[] = result.toString().split(";");
 
             String name = arrResult[0];
             String weight = arrResult[1];
             String isAngry = arrResult[2];
-
-           // System.out.println(Arrays.toString(arrResult));
 
             String template = ((isAngry.equals("true")) ? "Сердитый " : "Добродушный ") + "кот %s весом %s кг.";
             String textOut = String.format(template, name, weight);

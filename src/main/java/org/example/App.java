@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class App {
     public static void main(String[] args) throws Exception {
 
-        Birthday.getAge(1983, 9, 11);
+       /* Birthday.getAge(1983, 9, 11);
         Birthday.nextBirthday(1983, 9, 11);
 
         System.out.println();
@@ -16,13 +16,13 @@ public class App {
         File file2 = new File("text.txt");
 
         String fileIn = file.toString();
-        String fileOut = file2.toString();
+        String fileOut = file2.toString();*/
 
        /* TextTransformer textTransformer = new TextTransformer();
         textTransformer.transform(fileIn, fileOut);*/
 
-        StreamTransformer streamTransformer = new StreamTransformer();
-        streamTransformer.transform(fileIn,fileOut);
+       /* StreamTransformer streamTransformer = new StreamTransformer();
+        streamTransformer.transform(fileIn,fileOut);*/
 
        /* try {
             Cat cat = new Cat("Барсик", -1, false);
@@ -38,10 +38,10 @@ public class App {
         StreamTransformer streamTransformer = new StreamTransformer();
         streamTransformer.transform("cat.csv","out.txt"); */
 
-        Cat murzik = new Cat("Мурзик",5,true);
-        Cat barsik = new Cat("Барсик",6,false);
-        Cat murka = new Cat("Мурка",8,false);
-        Cat aurka = new Cat("Aурка",3,true);
+        Cat murzik = new Cat("Мурзик", 5, true);
+        Cat barsik = new Cat("Барсик", 6, true);
+        Cat murka = new Cat("Мурка", 8, true);
+        Cat pushistik = new Cat("Пушистик", 8, false);
 
        /* Dog sharik = new Dog("Шарик", true, "Пёс");
         Dog bobik = new Dog("Бобик", true, "Пёс");
@@ -71,17 +71,17 @@ public class App {
         catStackKitchen.add(murka);
         catStackKitchen.feed();*/
 
-//        ArrayList<Cat> cats = new ArrayList<>();
-//        cats.add(aurka);
-//        cats.add(murzik);
-//        cats.add(barsik);
-//        cats.add(murka);
-//
-//        CatStatistics.sortByNameAscending(cats);
-//        CatStatistics.sortByWeightDescending(cats);
-//        CatStatistics.removeFirstAndLast(cats);
-//        CatStatistics.findFirstNonAngryCat(cats);
-//        CatStatistics.getCommonWeight(cats, true);
-//        CatStatistics.groupCatByFirstLetter(cats);
+        ArrayList<Cat> cats = new ArrayList<>();
+        cats.add(murzik);
+        cats.add(barsik);
+        cats.add(murka);
+        cats.add(pushistik);
+
+        CatStatistics.sortByNameAscending(cats);
+        CatStatistics.sortByWeightDescending(cats);
+        CatStatistics.removeFirstAndLast(cats);
+        CatStatistics.findFirstNonAngryCat(cats);
+        CatStatistics.getCommonWeight(cats, true);
+        CatStatistics.groupCatByFirstLetter(cats);
     }
 }
