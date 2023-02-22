@@ -7,22 +7,22 @@ import java.util.ArrayList;
 public class App {
     public static void main(String[] args) throws Exception {
 
-       /* Birthday.getAge(1983, 9, 11);
-        Birthday.nextBirthday(1983, 9, 11);
-
-        System.out.println();
+//        Birthday.getAge(1983, 9, 11);
+//        Birthday.nextBirthday(1983, 9, 11);
+//
+//        System.out.println();
 
         File file = new File("cat.csv");
         File file2 = new File("text.txt");
 
         String fileIn = file.toString();
-        String fileOut = file2.toString();*/
+        String fileOut = file2.toString();
 
-       /* TextTransformer textTransformer = new TextTransformer();
-        textTransformer.transform(fileIn, fileOut);*/
+        TextTransformer textTransformer = new TextTransformer();
+        textTransformer.transform(fileIn, fileOut);
 
-       /* StreamTransformer streamTransformer = new StreamTransformer();
-        streamTransformer.transform(fileIn,fileOut);*/
+//        StreamTransformer streamTransformer = new StreamTransformer();
+//        streamTransformer.transform(fileIn,fileOut);
 
        /* try {
             Cat cat = new Cat("Барсик", -1, false);
@@ -34,9 +34,8 @@ public class App {
 
         Cat cat = CatFactory.createCat("Мурзик", 3);
         System.out.println(cat);*/
-/*
-        StreamTransformer streamTransformer = new StreamTransformer();
-        streamTransformer.transform("cat.csv","out.txt"); */
+
+
 
         Cat murzik = new Cat("Мурзик", 5, true);
         Cat barsik = new Cat("Барсик", 6, true);
