@@ -4,22 +4,30 @@ import java.util.*;
 
 public class QueueKitchen<T> implements AnimalKitchen<T> {
     private ArrayList<T> animals = new ArrayList<>();
-    private Queue<T> queue = new LinkedList<>();
+
+    public ArrayList<T> getAnimals() {
+        return animals;
+    }
+
+    public void setAnimals(ArrayList<T> animals) {
+        this.animals = animals;
+    }
 
     @Override
     public void add(T arg) {
-        queue.add(arg);
-        System.out.println(queue);
+        getAnimals().add(arg);
+        // System.out.println(getAnimals());
     }
 
     @Override
     public void feed() {
-        while (!queue.isEmpty()) {
-            queue.remove();
-            System.out.println(queue);
+
+        for (int i = 0; i <  getAnimals().size(); i++) {
+            while (! getAnimals().isEmpty()) {
+                getAnimals().remove(i);
+                // System.out.println ( getAnimals().remove(i)+" "+ getAnimals().size());
+            }
+
         }
-
     }
-
-
 }

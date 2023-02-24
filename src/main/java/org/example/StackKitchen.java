@@ -5,20 +5,26 @@ import java.util.Stack;
 
 public class StackKitchen<T> implements AnimalKitchen<T> {
     private ArrayList<T> animals = new ArrayList<>();
-    private Stack stack = new Stack<>();
+
+    public ArrayList<T> getAnimals() {
+        return animals;
+    }
+
+    public void setAnimals(ArrayList<T> animals) {
+        this.animals = animals;
+    }
 
     @Override
     public void add(T arg) {
-        stack.push(arg);
-        System.out.println(stack);
+        getAnimals().add(arg);
+        // System.out.println( getAnimals());
     }
 
     @Override
     public void feed() {
-        while (!stack.isEmpty()) {
-            stack.pop();
-            System.out.println(stack);
+        for (int i = getAnimals().size() - 1; i >= 0; i--) {
+            getAnimals().remove(i);
+            // System.out.println( getAnimals().remove(i) + " " +  getAnimals().size());
         }
     }
-
 }
