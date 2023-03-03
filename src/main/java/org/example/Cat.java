@@ -39,9 +39,13 @@ public class Cat {
     }
 
 
-    @Override
+   @Override
     public String toString() {
-        return "Cat { " + name + " }";
+        return "Cat{" +
+                "name='" + name + '\'' +
+                ", weight=" + weight +
+                ", isAngry=" + isAngry +
+                '}';
     }
 
 
