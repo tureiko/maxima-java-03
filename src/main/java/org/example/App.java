@@ -36,7 +36,6 @@ public class App {
         System.out.println(cat);*/
 
 
-
         Cat murzik = new Cat("Мурзик", 5, true);
         Cat barsik = new Cat("Барсик", 6, true);
         Cat murka = new Cat("Мурка", 8, true);
@@ -77,11 +76,11 @@ public class App {
         cats.add(murka);
         cats.add(pushistik);
 
-        CatStatistics.sortByNameAscending(cats);
-        CatStatistics.sortByWeightDescending(cats);
-        CatStatistics.removeFirstAndLast(cats);
-        CatStatistics.findFirstNonAngryCat(cats);
-        CatStatistics.getCommonWeight(cats, true);
-        CatStatistics.groupCatByFirstLetter(cats);
+//        CatStatistics.sortByNameAscending(cats);
+//        CatStatistics.sortByWeightDescending(cats);
+//        CatStatistics.removeFirstAndLast(cats);
+//        CatStatistics.findFirstNonAngryCat(cats);
+//        CatStatistics.getCommonWeight(cats, true);
+//        CatStatistics.groupCatByFirstLetter(cats);
     }
 }

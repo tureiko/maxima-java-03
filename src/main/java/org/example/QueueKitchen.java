@@ -22,10 +22,10 @@ public class QueueKitchen<T> implements AnimalKitchen<T> {
     @Override
     public void feed() {
 
-        for (int i = 0; i <  getAnimals().size(); i++) {
-            while (! getAnimals().isEmpty()) {
+        for (int i = 0; i < getAnimals().size(); i++) {
+            while (!getAnimals().isEmpty()) {
                 getAnimals().remove(i);
-                // System.out.println ( getAnimals().remove(i)+" "+ getAnimals().size());
+                //System.out.println ( getAnimals());
             }
 
         }
