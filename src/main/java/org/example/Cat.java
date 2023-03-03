@@ -7,9 +7,10 @@ public class Cat {
     private boolean isAngry;
 
 
-    public Cat(String name, int weight, boolean isAngry) {
+    public Cat(String name, int weight, boolean isAngry) throws Exception {
         this.name = name;
-        this.weight = weight;
+        if (weight >= 0) this.weight = weight;
+        else throw new IncorrectCatWeightException("Неправильный кот");
         this.isAngry = isAngry;
     }
 
@@ -26,8 +27,9 @@ public class Cat {
         return weight;
     }
 
-    public void setWeight(int weight){
-       this.weight = weight;
+    public void setWeight(int weight) throws IncorrectCatWeightException {
+        if (weight >= 0) this.weight = weight;
+        else throw new IncorrectCatWeightException("Неправильный кот");
     }
 
     public boolean isAngry() {
@@ -39,17 +41,10 @@ public class Cat {
     }
 
 
-   /* @Override
-    public String toString() {
-        return "Cat{" +
-                "name='" + name + '\'' +
-                ", weight=" + weight +
-                ", isAngry=" + isAngry +
-                '}';
-    }*/
-
-        @Override
+    @Override
     public String toString() {
         return "Cat { " + name + " }";
     }
+
+
 }

@@ -1,18 +1,15 @@
 package org.example;
 
-
 public class Dog{
     private String name;
-    private String breed;
-    private boolean isGood;
+    private int weight;
+    private boolean isAngry;
 
-
-    public Dog(String name, boolean isGood, String breed) {
+    public Dog(String name, int weight, boolean isAngry) {
         this.name = name;
-        this.isGood = isGood;
-        this.breed = breed;
+        this.weight = weight;
+        this.isAngry = isAngry;
     }
-
 
     public String getName() {
         return name;
@@ -22,24 +19,23 @@ public class Dog{
         this.name = name;
     }
 
-    public String getBreed() {
-        return breed;
+
+    public int getWeight() {
+        return weight;
     }
 
-    public void setBreed(String breed) {
-        this.breed = breed;
-    }
-
-    public boolean isGood() {
-        return isGood;
-    }
-
-    public void setGood(boolean good) {
-        isGood = good;
+    public void setWeight(int weight) {
+        this.weight = weight;
     }
 
 
+    public boolean isAngry() {
+        return isAngry;
+    }
 
+    public void setAngry(boolean angry) {
+        isAngry = angry;
+    }
 
     @Override
     public String toString() {
