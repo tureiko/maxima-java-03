@@ -37,8 +37,12 @@ public class Dog{
         isAngry = angry;
     }
 
-    @Override
+     @Override
     public String toString() {
-        return "Dog { " + name + " }";
+        return "Dog{" +
+                "name='" + name + '\'' +
+                ", weight=" + weight +
+                ", isAngry=" + isAngry +
+                '}';
     }
 }
