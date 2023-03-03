@@ -41,9 +41,9 @@ public class App {
         Cat murka = new Cat("Мурка", 8, true);
         Cat pushistik = new Cat("Пушистик", 8, false);
 
-        Dog sharik = new Dog("Шарик", true, "Пёс");
-        Dog bobik = new Dog("Бобик", true, "Пёс");
-        Dog tuzik = new Dog("Тузик", true, "Пёс");
+        Dog sharik = new Dog("Шарик", 10, true);
+        Dog bobik = new Dog("Бобик", 15, false);
+        Dog tuzik = new Dog("Тузик", 20, false);
 
         QueueKitchen<Dog> dogQueueKitchen = new QueueKitchen<>();
         dogQueueKitchen.add(bobik);
